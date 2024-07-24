@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Color Guesser</title>
+	<meta name="description" content="Color Guesser">
+	<style type="text/css">
+		html, body {
+			font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+			font-weight: 400;
+		}
+		main {
+			flex-direction: column !important;
+			display: flex !important;
+			width: 100%;
+			margin: auto;
+			height: 100vh;
+			align-items: center;
+		    display: flex;
+		    flex-direction: column;
+		    justify-content: center;
+		    text-align: start;
+		}
+		.button {
+			width:300px;
+			appearance: button;
+			background-color: rgb(33, 37, 41);
+			border-radius: 8px;
+			border-color: rgb(33, 37, 41);
+			color: #fff;
+			cursor: pointer;
+			display: block;
+			font-size: 20px;
+			font-weight: 400;
+			line-height: 30px;
+			margin: 0px;
+			padding: 10px 20px;
+			text-align: center;
+			text-decoration-color: #fff;
+			text-decoration-line: none;
+			text-decoration-style: solid;
+			text-decoration-thickness: auto;
+			text-transform: none;
+			user-select: none;
+			vertical-align: middle;
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<button id="changeColorBtn" class="button" style="width: 300px">Change Color</button>
+	</main>
+	<script>
+		const colors = [
+			'#FFFFFF', // Blanc
+			'#000000', // Noir
+			'#FF0000', // Rouge
+			'#00FF00', // Vert
+			'#0000FF', // Bleu
+			'#FFFF00', // Jaune
+			'#808080', // Gris
+			'#800000', // Marron
+			'#800080', // Violet
+			'#FFA500', // Orange
+			'#FFC0CB' // rose
+			];
+		let currentColorIndex = -1;
+
+        function changeBackgroundColor() {
+            let newColorIndex;
+            do {
+                newColorIndex = Math.floor(Math.random() * colors.length);
+            } while (newColorIndex === currentColorIndex && colors.length > 1);
+
+            currentColorIndex = newColorIndex;
+            document.body.style.backgroundColor = colors[currentColorIndex];
+        }
+
+        document.getElementById('changeColorBtn').addEventListener('click', changeBackgroundColor);
+	</script>
+</body>
+</html>
